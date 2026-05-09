@@ -1,0 +1,1 @@
+export const getParsedSession = key => JSON.parse(sessionStorage.getItem(key))
