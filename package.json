@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://osamah2004.github.io/abe-balancing-engine",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

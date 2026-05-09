@@ -3,13 +3,14 @@ import { campaignBattles,battleDataObjects,battleParticipantsObjects } from "../
 import { getParsedSession } from "../toStorage";
 import Editor from '@monaco-editor/react';
 import Refresh from "../svgs/Refresh";
+import southBeachImg from '../assets/images/SOUTH BEACH - 1.png';
 
 const CampaignBattles = () =>  {
 	const [monacoArray,setMonacoArray] = useState([])
     const [targetBattleBattleIds,setTargetBattleBattleIds] = useState([])
     const [targetBattleParticipantsIds,setTargetBattleParticipantsIds] = useState([])
     const [bpartPool,setBpartPool] = useState([])
-    const [battleImg,setImg] = useState(`/src/assets/images/SOUTH BEACH - 1.png`)
+    const [battleImg, setImg] = useState(`${import.meta.env.BASE_URL}src/assets/images/SOUTH BEACH - 1.png`);
     const [pigPool,setPigPool] = useState(getParsedSession('pig-pool') || [])
 
     const [selectedBpart,setBpart] = useState(null)
@@ -61,7 +62,7 @@ const CampaignBattles = () =>  {
     const setBattle = (e) => {
         const cleaned = e.replace(/\[[^\]]*\]/g, '');
         setHotspotName(cleaned)
-        setImg(`/src/assets/images/${cleaned.toUpperCase().replace(':','')}.png`);
+        setImg(`${import.meta.env.BASE_URL}src/assets/images/${cleaned.toUpperCase().replace(':','')}.png`);
         setBpart(0)
         let temp = []
         temp.push({[`### ${e.toUpperCase()} HOTSPOT ###`]:0})
@@ -107,7 +108,14 @@ const CampaignBattles = () =>  {
                 {/* selected battle information */}
                 <div className="w-125">
                     <header className="secondary">{selectedHotspotName.slice(selectedHotspotName.indexOf(':')+1)}'s Position in map</header>
-                    <img src={battleImg} alt="test" />
+                    <img 
+                        src={battleImg} 
+                        alt="test" 
+                        onError={(e) => {
+                            console.log('Failed to load image:', battleImg);
+                            console.log('Full URL:', window.location.origin + battleImg);
+                        }}
+                    />
                     <header className="secondary">battle ids</header>
                     <div className="grid2">
                         {targetBattleBattleIds.map(e => <button onClick={() => selectBattle(e)}>{e}</button>)}
