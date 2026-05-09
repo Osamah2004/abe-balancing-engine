@@ -92,6 +92,10 @@ const ChangesReview = () => {
                     value={JSON.stringify(monacoCode,null,4)}
                     language='json'
                     theme='vs-dark'
+                    options={{
+                        readOnly:true,
+                        readOnlyMessage:'cannot edit this field'
+                    }}
                 />
             </div>
         </div>

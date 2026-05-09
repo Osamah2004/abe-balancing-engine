@@ -159,6 +159,10 @@ const CampaignBattles = () =>  {
                         value={JSON.stringify(monacoArray, null, 4)}
                         defaultLanguage="json"
                         theme="vs-dark"
+                        options={{
+                            readOnly:true,
+                            readOnlyMessage:'cannot edit this field'
+                        }}
                     />
                 </div>
             </div>
