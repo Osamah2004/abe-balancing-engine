@@ -1,6 +1,8 @@
 # ABE Balancing Engine
 ## A GUI tool to make building custom angry birds epic more simple than ever.
 
+usage example: https://youtu.be/mrZ4lg6xB9g
+
 ---
 
 ## Local Development Setup
@@ -33,3 +35,5 @@ localhost:5173
 ## Tech stack
 1. React.js
 2. tailwind css
+
+Feel free to contribute by reporting bugs, providing assets, pull requests, etc.
